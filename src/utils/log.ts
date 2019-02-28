@@ -27,7 +27,9 @@ const onLogEmitter: EventEmitter<LogMessage> = new EventEmitter<LogMessage>();
 export const onLog: Event<LogMessage> = onLogEmitter.event;
 export function log(message: string, severity = LogSeverity.Info, category = LogCategory.General) {
 	onLogEmitter.fire(new LogMessage((message || "").toString(), severity, category));
-	console.log(message);
+	if (message) {
+		console.log(message.length > 50 ? message.substr(0, 50) : message);
+	}
 	// Warn/Error always go to General.
 	if (category !== LogCategory.General && severity !== LogSeverity.Info) {
 		onLogEmitter.fire(new LogMessage(`[${LogCategory[category]}] ${message}`, severity, LogCategory.General));
