@@ -10,7 +10,7 @@ const installedButOutOfDatePackage2 = "meta";
 const installedButOutOfDatePackage2NewVersion = "1.1.7";
 const definitelyNotInstalledPackage = "path";
 
-describe("pub global", () => {
+describe.skip("pub global", () => {
 	beforeEach("activate", () => activate(null));
 
 	it("reports not-installed for a package that's not installed", async () => {

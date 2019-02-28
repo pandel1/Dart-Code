@@ -11,7 +11,7 @@ import { FLUTTER_CREATE_PROJECT_TRIGGER_FILE } from "../../src/utils";
 import { getChildFolders } from "../../src/utils/fs";
 import { deleteDirectoryRecursive, sb } from "../helpers";
 
-describe("URL handler", async () => {
+describe.skip("URL handler", async () => {
 	const urlHandler = new DartUriHandler(new FlutterCapabilities("1.0.0"));
 	const tempPath = path.join(os.tmpdir(), dartCodeExtensionIdentifier, "flutter", "sample", "my.sample.id");
 	beforeEach("clear out sample folder", () => deleteDirectoryRecursive(tempPath));

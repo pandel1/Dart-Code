@@ -3,7 +3,7 @@ import * as util from "../../../src/debug/utils";
 import { fsPath } from "../../../src/utils";
 import { emptyFile, everythingFile, ext, flutterEmptyFile, flutterHelloWorldFolder, flutterHelloWorldMainFile, helloWorldFolder } from "../../helpers";
 
-describe("util.uriToFilePath", () => {
+describe.skip("util.uriToFilePath", () => {
 	it("should handle all path formats for Windows", () => {
 		assert.equal(util.uriToFilePath("file:///c:/folder/file.dart", true), "c:\\folder\\file.dart");
 		assert.equal(util.uriToFilePath("file://c:/folder/file.dart", true), "c:\\folder\\file.dart");
@@ -17,7 +17,7 @@ describe("util.uriToFilePath", () => {
 	});
 });
 
-describe("util.isWithinPath", () => {
+describe.skip("util.isWithinPath", () => {
 	it("should return true for children", () => {
 		assert.equal(util.isWithinPath(fsPath(helloWorldFolder), ext.extensionPath), true);
 		assert.equal(util.isWithinPath(fsPath(emptyFile), ext.extensionPath), true);

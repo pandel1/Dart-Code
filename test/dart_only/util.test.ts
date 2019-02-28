@@ -3,7 +3,7 @@ import * as path from "path";
 import { isDartSdkFromFlutter } from "../../src/sdk/utils";
 import * as util from "../../src/utils";
 
-describe("util.versionIsAtLeast", () => {
+describe.skip("util.versionIsAtLeast", () => {
 	it("should not consider build numbers when comparing versions", () => {
 		assert.equal(util.versionIsAtLeast("1.2.3", "1.2.3"), true);
 		assert.equal(util.versionIsAtLeast("1.2.3+012345", "1.2.3"), true);
