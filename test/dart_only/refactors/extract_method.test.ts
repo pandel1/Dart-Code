@@ -5,7 +5,7 @@ import { REFACTOR_ANYWAY, REFACTOR_FAILED_DOC_MODIFIED } from "../../../src/comm
 import { PromiseCompleter } from "../../../src/debug/utils";
 import { activate, currentDoc, ensureTestContent, positionOf, rangeOf, sb, setTestContent, waitForResult } from "../../helpers";
 
-describe("refactor", () => {
+describe.skip("refactor", () => {
 
 	beforeEach("activate", () => activate());
 
