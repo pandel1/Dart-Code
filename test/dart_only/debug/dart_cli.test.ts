@@ -47,7 +47,7 @@ describe("dart cli debugger", () => {
 		]);
 	});
 
-	describe("prompts the user if trying to run with errors", () => {
+	describe.skip("prompts the user if trying to run with errors", () => {
 		function getTempProjectFile() {
 			const fileName = `temp-${getRandomInt(0x1000, 0x10000).toString(16)}.dart`;
 			return vs.Uri.file(path.join(fsPath(helloWorldFolder), "bin", fileName));
@@ -663,7 +663,7 @@ describe("dart cli debugger", () => {
 		]);
 	});
 
-	describe("attaches", () => {
+	describe.skip("attaches", () => {
 		it("to a paused Dart script and can unpause to run it to completion", async () => {
 			const process = spawnDartProcessPaused(await getLaunchConfiguration(helloWorldMainFile));
 			const observatoryUri = await process.observatoryUri;

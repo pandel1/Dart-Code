@@ -1,7 +1,7 @@
 import * as vs from "vscode";
 import { activate, currentDoc, ensureTestContent, rangeOf, setTestContent } from "../../helpers";
 
-describe("refactor", () => {
+describe.skip("refactor", () => {
 
 	beforeEach("activate", () => activate());
 

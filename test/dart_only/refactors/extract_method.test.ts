@@ -9,7 +9,7 @@ describe("refactor", () => {
 
 	beforeEach("activate", () => activate());
 
-	it("can extract simple code into a method", async () => {
+	it.skip("can extract simple code into a method", async () => {
 		const showInputBox = sb.stub(vs.window, "showInputBox");
 		showInputBox.resolves("printHelloWorld");
 
