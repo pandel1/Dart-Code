@@ -4,7 +4,7 @@ import { activate, currentDoc, currentEditor, documentEol, emptyExcludedFile, em
 
 const formattingOptions: vs.FormattingOptions = { tabSize: 2, insertSpaces: true };
 
-describe("dart_formatting_edit_provider", () => {
+describe.skip("dart_formatting_edit_provider", () => {
 
 	beforeEach("activate", () => activate());
 

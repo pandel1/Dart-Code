@@ -2,7 +2,7 @@ import * as assert from "assert";
 import * as vs from "vscode";
 import { activate, delay, emptyFile, emptyFileInExcludedFolder, ensureError, openFile, setTestContent, waitForDiagnosticChange } from "../../helpers";
 
-describe("diagnostics_provider", () => {
+describe.skip("diagnostics_provider", () => {
 
 	beforeEach("activate emptyFile", () => activate(emptyFile));
 

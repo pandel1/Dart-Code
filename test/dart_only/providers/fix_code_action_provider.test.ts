@@ -4,7 +4,7 @@ import * as vs from "vscode";
 import { fsPath } from "../../../src/utils";
 import { activate, currentDoc, defer, emptyFile, helloWorldCreateMethodClassAFile, helloWorldCreateMethodClassBFile, missingFile, openFile, rangeOf, setTestContent, tryDelete, uncommentTestFile, waitForNextAnalysis } from "../../helpers";
 
-describe("fix_code_action_provider", () => {
+describe.skip("fix_code_action_provider", () => {
 
 	beforeEach("activate helloWorldCreateMethodClassBFile", async () => {
 		await activate();

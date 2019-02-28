@@ -3,7 +3,7 @@ import * as assert from "assert";
 import * as vs from "vscode";
 import { activate, currentDoc, ensureLocation, everythingFile, extApi, getPackages, positionOf, rangeOf } from "../../helpers";
 
-describe("dart_reference_provider", () => {
+describe.skip("dart_reference_provider", () => {
 
 	// We have tests that read tooltips from external packages so we need to ensure packages have been fetched.
 	before("get packages", () => getPackages());

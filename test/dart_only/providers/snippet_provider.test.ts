@@ -1,6 +1,6 @@
 import { activate, ensureNoSnippet, ensureSnippet, getSnippetCompletionsAt, setTestContent } from "../../helpers";
 
-describe("snippet_provider", () => {
+describe.skip("snippet_provider", () => {
 
 	beforeEach("activate", () => activate());
 

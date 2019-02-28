@@ -3,7 +3,7 @@ import * as path from "path";
 import * as vs from "vscode";
 import { activate, ensureWorkspaceSymbol, everythingFile, getWorkspaceSymbols } from "../../helpers";
 
-describe("workspace_symbol_provider", () => {
+describe.skip("workspace_symbol_provider", () => {
 
 	beforeEach("activate", () => activate());
 

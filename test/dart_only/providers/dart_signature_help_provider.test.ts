@@ -2,7 +2,7 @@ import * as assert from "assert";
 import * as vs from "vscode";
 import { activate, currentDoc, extApi, positionOf, setTestContent } from "../../helpers";
 
-describe("dart_signature_provider", () => {
+describe.skip("dart_signature_provider", () => {
 	beforeEach("activate", () => activate());
 	beforeEach("skip if analyzer doesn't support getSignature", function () {
 		if (!extApi.analyzerCapabilities.supportsGetSignature)

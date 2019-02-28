@@ -2,7 +2,7 @@ import * as assert from "assert";
 import * as vs from "vscode";
 import { activate, currentDoc, ensureTestContent, extApi, positionOf, setTestContent } from "../../helpers";
 
-describe("rename_provider", () => {
+describe.skip("rename_provider", () => {
 
 	beforeEach("activate", () => activate());
 

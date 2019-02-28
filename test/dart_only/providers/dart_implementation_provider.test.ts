@@ -6,7 +6,7 @@ import { activate, currentDoc, ensureLocation, ensureNoLocation, helloWorldFolde
 
 const testFile = vs.Uri.file(path.join(fsPath(helloWorldFolder), "lib/go_to_implementation.dart"));
 
-describe("dart_implementation_provider", () => {
+describe.skip("dart_implementation_provider", () => {
 	beforeEach("activate everythingFile", () => activate(testFile));
 
 	async function getImplementationsAt(searchText: string): Promise<vs.Location[]> {

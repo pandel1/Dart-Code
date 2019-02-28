@@ -1,7 +1,7 @@
 import * as vs from "vscode";
 import { activate, currentDoc, ensureCompletion, getCompletionsAt, helloWorldCompletionFile, setTestContent } from "../../helpers";
 
-describe("completion_item_provider", () => {
+describe.skip("completion_item_provider", () => {
 
 	beforeEach("activate helloWorldCompletionFile", () => activate(helloWorldCompletionFile));
 

@@ -2,7 +2,7 @@ import * as assert from "assert";
 import * as vs from "vscode";
 import { activate, ensureDocumentSymbol, everythingFile, getDocumentSymbols } from "../../helpers";
 
-describe("document_symbol_provider", () => {
+describe.skip("document_symbol_provider", () => {
 
 	beforeEach("activate everythingFile", () => activate(everythingFile));
 
