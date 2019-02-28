@@ -83,7 +83,7 @@ describe.skip("cleanDartDoc", () => {
 	});
 });
 
-.skip"stripMarkdown", () => {
+describe.skip("stripMarkdown", () => {
 	it("removes links and references", () => {
 		const input = `
 		This example shows a [Scaffold] with an [AppBar], a [BottomAppBar] and a
