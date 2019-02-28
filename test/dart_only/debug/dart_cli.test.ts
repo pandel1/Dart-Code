@@ -329,7 +329,7 @@ describe("dart cli debugger", () => {
 		]);
 	});
 
-	it("steps into an external library if debugExternalLibraries is true", async () => {
+	it.skip("steps into an external library if debugExternalLibraries is true", async () => {
 		await openFile(helloWorldHttpFile);
 		// Get location for `print`
 		const httpReadCall = positionOf("http.re^ad(");
@@ -436,7 +436,7 @@ describe("dart cli debugger", () => {
 	it.skip("doesn't stop at a breakpoint with a condition returning null", testBreakpointCondition("print('test');", false));
 	it.skip("reports errors evaluating breakpoint conditions", testBreakpointCondition("1 + '1'", false, "Debugger failed to evaluate expression `1 + '1'`"));
 
-	it("logs expected text (and does not stop) at a logpoint", async () => {
+	it.skip("logs expected text (and does not stop) at a logpoint", async () => {
 		await openFile(helloWorldMainFile);
 		const config = await startDebugger(helloWorldMainFile);
 		await Promise.all([
