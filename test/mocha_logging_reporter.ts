@@ -38,6 +38,9 @@ export class LoggingReporter extends reporters.Base {
 
 		runner.once("end", () => {
 			wtf.dump();
+			setTimeout(() => wtf.dump(), 1000);
+			setTimeout(() => wtf.dump(), 5000);
+			setTimeout(() => wtf.dump(), 30000);
 		});
 	}
 }
