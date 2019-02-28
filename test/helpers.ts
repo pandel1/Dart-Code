@@ -667,12 +667,14 @@ export function watchPromise<T>(name: string, promise: Promise<T>): Promise<T> {
 	});
 
 	let checkResult: () => void;
+	let secondsWaited = 0;
 	checkResult = () => {
 		if (didComplete)
 			return;
 		logCompletion = true;
-		log(`Promise ${name} is still unresolved!`, LogSeverity.Info, LogCategory.CI);
+		log(`Promise ${name} is still unresolved!`, secondsWaited > 100 ? LogSeverity.Warn : LogSeverity.Info, LogCategory.CI);
 		setTimeout(checkResult, 10000);
+		secondsWaited += 10;
 	};
 	setTimeout(checkResult, 3000); // First log is after 3s, rest are 10s.
 
