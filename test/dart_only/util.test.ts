@@ -34,7 +34,7 @@ describe.skip("util.versionIsAtLeast", () => {
 	});
 });
 
-describe("util.isStableSdk", () => {
+describe.skip("util.isStableSdk", () => {
 	it("should consider missing versions as unstable", () => {
 		assert.equal(util.isStableSdk(), false);
 		assert.equal(util.isStableSdk(undefined), false);
@@ -53,7 +53,7 @@ describe("util.isStableSdk", () => {
 	});
 });
 
-describe("util.isDartSdkFromFlutter", () => {
+describe.skip("util.isDartSdkFromFlutter", () => {
 	it("should consider Dart SDK to not be from Flutter", function () {
 		if (!process.env.DART_PATH) {
 			this.skip();

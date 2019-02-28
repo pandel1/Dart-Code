@@ -35,7 +35,7 @@ describe.skip("file tracker", () => {
 		assert.deepStrictEqual(OpenFileTracker.getLastPriorityFiles(), []);
 	});
 
-	describe("subscriptions", function () {
+	describe.skip("subscriptions", function () {
 		this.timeout(threeMinutesInMilliseconds + (1000 * 30));
 
 		beforeEach(async function () {
