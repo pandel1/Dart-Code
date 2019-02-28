@@ -38,7 +38,7 @@ describe("dart cli debugger", () => {
 		return config;
 	}
 
-	it("runs a Dart script to completion", async () => {
+	it.skip("runs a Dart script to completion", async () => {
 		const config = await startDebugger(helloWorldMainFile);
 		await Promise.all([
 			dc.configurationSequence(),
@@ -125,7 +125,7 @@ describe("dart cli debugger", () => {
 		});
 	});
 
-	it("receives the expected output from a Dart script", async () => {
+	it.skip("receives the expected output from a Dart script", async () => {
 		const config = await startDebugger(helloWorldMainFile);
 		await Promise.all([
 			dc.configurationSequence(),
@@ -135,7 +135,7 @@ describe("dart cli debugger", () => {
 		]);
 	});
 
-	it("passes launch.json's vmAdditionalArgs to the VM", async () => {
+	it.skip("passes launch.json's vmAdditionalArgs to the VM", async () => {
 		const config = await startDebugger(helloWorldMainFile);
 		config.vmAdditionalArgs = ["--fake-flag"];
 		await Promise.all([
@@ -148,7 +148,7 @@ describe("dart cli debugger", () => {
 		]);
 	});
 
-	it("successfully runs a Dart script with a relative path", async () => {
+	it.skip("successfully runs a Dart script with a relative path", async () => {
 		const config = await startDebugger(helloWorldMainFile);
 		config.program = path.relative(fsPath(helloWorldFolder), fsPath(helloWorldMainFile));
 		await Promise.all([
@@ -159,7 +159,7 @@ describe("dart cli debugger", () => {
 		]);
 	});
 
-	it("runs bin/main.dart if no file is open/provided", async () => {
+	it.skip("runs bin/main.dart if no file is open/provided", async () => {
 		await closeAllOpenFiles();
 		const config = await startDebugger();
 		await Promise.all([
@@ -170,7 +170,7 @@ describe("dart cli debugger", () => {
 		]);
 	});
 
-	it("runs the provided script regardless of what's open", async () => {
+	it.skip("runs the provided script regardless of what's open", async () => {
 		await openFile(helloWorldMainFile);
 		const config = await startDebugger(helloWorldGoodbyeFile);
 		await Promise.all([
@@ -181,7 +181,7 @@ describe("dart cli debugger", () => {
 		]);
 	});
 
-	it("runs the open script if no file is provided", async () => {
+	it.skip("runs the open script if no file is provided", async () => {
 		await openFile(helloWorldGoodbyeFile);
 		const config = await startDebugger();
 		await Promise.all([
@@ -222,7 +222,7 @@ describe("dart cli debugger", () => {
 		assert.notEqual(serverResponse.indexOf("Dart DevTools"), -1);
 	});
 
-	it("stops at a breakpoint", async () => {
+	it.skip("stops at a breakpoint", async () => {
 		await openFile(helloWorldMainFile);
 		const config = await startDebugger(helloWorldMainFile);
 		await dc.hitBreakpoint(config, {
@@ -270,7 +270,7 @@ describe("dart cli debugger", () => {
 		assert.equal(frames[0].source!.name, "dart:core/print.dart");
 	});
 
-	it("stops at a breakpoint in an external package", async () => {
+	it.skip("stops at a breakpoint in an external package", async () => {
 		await openFile(helloWorldHttpFile);
 		// Get location for `http.read`
 		const def = await getDefinition(positionOf("http.re^ad"));
@@ -286,7 +286,7 @@ describe("dart cli debugger", () => {
 		assert.equal(frames[0].source!.name, "package:http/http.dart");
 	});
 
-	it("steps into the SDK if debugSdkLibraries is true", async () => {
+	it.skip("steps into the SDK if debugSdkLibraries is true", async () => {
 		await openFile(helloWorldMainFile);
 		// Get location for `print`
 		const printCall = positionOf("pri^nt(");
@@ -311,7 +311,7 @@ describe("dart cli debugger", () => {
 		]);
 	});
 
-	it("does not step into the SDK if debugSdkLibraries is false", async () => {
+	it.skip("does not step into the SDK if debugSdkLibraries is false", async () => {
 		await openFile(helloWorldMainFile);
 		// Get location for `print`
 		const printCall = positionOf("pri^nt(");
@@ -354,7 +354,7 @@ describe("dart cli debugger", () => {
 		]);
 	});
 
-	it("does not step into an external library if debugExternalLibraries is false", async () => {
+	it.skip("does not step into an external library if debugExternalLibraries is false", async () => {
 		await openFile(helloWorldHttpFile);
 		// Get location for `print`
 		const httpReadCall = positionOf("http.re^ad(");
@@ -428,13 +428,13 @@ describe("dart cli debugger", () => {
 		};
 	}
 
-	it("stops at a breakpoint with a condition returning true", testBreakpointCondition("1 == 1", true));
-	it("stops at a breakpoint with a condition returning 1", testBreakpointCondition("3 - 2", true));
-	it("doesn't stop at a breakpoint with a condition returning a string", testBreakpointCondition("'test'", false));
-	it("doesn't stop at a breakpoint with a condition returning false", testBreakpointCondition("1 == 0", false));
-	it("doesn't stop at a breakpoint with a condition returning 0", testBreakpointCondition("3 - 3", false));
-	it("doesn't stop at a breakpoint with a condition returning null", testBreakpointCondition("print('test');", false));
-	it("reports errors evaluating breakpoint conditions", testBreakpointCondition("1 + '1'", false, "Debugger failed to evaluate expression `1 + '1'`"));
+	it.skip("stops at a breakpoint with a condition returning true", testBreakpointCondition("1 == 1", true));
+	it.skip("stops at a breakpoint with a condition returning 1", testBreakpointCondition("3 - 2", true));
+	it.skip("doesn't stop at a breakpoint with a condition returning a string", testBreakpointCondition("'test'", false));
+	it.skip("doesn't stop at a breakpoint with a condition returning false", testBreakpointCondition("1 == 0", false));
+	it.skip("doesn't stop at a breakpoint with a condition returning 0", testBreakpointCondition("3 - 3", false));
+	it.skip("doesn't stop at a breakpoint with a condition returning null", testBreakpointCondition("print('test');", false));
+	it.skip("reports errors evaluating breakpoint conditions", testBreakpointCondition("1 + '1'", false, "Debugger failed to evaluate expression `1 + '1'`"));
 
 	it("logs expected text (and does not stop) at a logpoint", async () => {
 		await openFile(helloWorldMainFile);
