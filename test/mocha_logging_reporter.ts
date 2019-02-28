@@ -3,6 +3,11 @@ import { LogCategory, LogSeverity } from "../src/debug/utils";
 import { log } from "../src/utils/log";
 import { wtf } from "./dart_only";
 import testRunner = require("vscode/lib/testrunner");
+const onExit = require("signal-exit"); // tslint:disable-line:no-var-requires
+
+onExit(() => {
+	wtf.dump();
+});
 
 export class LoggingReporter extends reporters.Base {
 	constructor(runner: any, options: any) {
