@@ -3,7 +3,7 @@ import { OpenFileTracker } from "../../../src/analysis/open_file_tracker";
 import { TestOutlineVisitor } from "../../../src/utils/vscode/outline";
 import { activate, extApi, flutterTestOtherFile, getPackages, waitForResult } from "../../helpers";
 
-describe("test_outline_visitor", () => {
+describe.skip("test_outline_visitor", () => {
 	before("get packages", () => getPackages());
 	beforeEach("activate and wait for outline", async () => {
 		await activate(flutterTestOtherFile);

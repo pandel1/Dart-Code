@@ -1,6 +1,7 @@
 import { ITest, reporters } from "mocha";
 import { LogCategory, LogSeverity } from "../src/debug/utils";
 import { log } from "../src/utils/log";
+import { wtf } from "./dart_only";
 import testRunner = require("vscode/lib/testrunner");
 
 export class LoggingReporter extends reporters.Base {
@@ -30,6 +31,8 @@ export class LoggingReporter extends reporters.Base {
 			}
 		});
 
-		// runner.once("end", () => { });
+		runner.once("end", () => {
+			wtf.dump();
+		});
 	}
 }
