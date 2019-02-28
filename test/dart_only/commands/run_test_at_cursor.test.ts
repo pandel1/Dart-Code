@@ -4,7 +4,7 @@ import { OpenFileTracker } from "../../../src/analysis/open_file_tracker";
 import { cursorIsInTest } from "../../../src/commands/test";
 import { activate, getPackages, helloWorldTestMainFile, openFile, positionOf, waitForResult } from "../../helpers";
 
-describe("run test at cursor", () => {
+describe.skip("run test at cursor", () => {
 
 	before("get packages", () => getPackages());
 	beforeEach("activate and wait for outline", async () => {

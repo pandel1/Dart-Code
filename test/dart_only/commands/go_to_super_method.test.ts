@@ -8,7 +8,7 @@ import { activate, currentDoc, currentEditor, ensureIsRange, helloWorldFolder, p
 const superFile = vs.Uri.file(path.join(fsPath(helloWorldFolder), "lib/go_to_super_method/super.dart"));
 const derivedFile = vs.Uri.file(path.join(fsPath(helloWorldFolder), "lib/go_to_super_method/derived.dart"));
 
-describe("go_to_super_method", () => {
+describe.skip("go_to_super_method", () => {
 	beforeEach("activate and wait for outline", async () => {
 		await activate(derivedFile);
 		await waitForResult(() => !!OpenFileTracker.getOutlineFor(derivedFile));

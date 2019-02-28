@@ -3,7 +3,7 @@ import * as sinon from "sinon";
 import * as vs from "vscode";
 import { activate, delay, helloWorldPubspec, openFile, sb, setConfigForTest, setTestContent } from "../../helpers";
 
-describe("pub get", () => {
+describe.skip("pub get", () => {
 
 	beforeEach("activate", () => activate());
 

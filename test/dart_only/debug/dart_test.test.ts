@@ -11,7 +11,7 @@ import { SuiteTreeItem, TestResultsProvider, TestStatus } from "../../../src/vie
 import { DartDebugClient } from "../../dart_debug_client";
 import { activate, defer, delay, ext, extApi, getExpectedResults, getLaunchConfiguration, getPackages, helloWorldTestBrokenFile, helloWorldTestDupeNameFile, helloWorldTestMainFile, helloWorldTestSkipFile, helloWorldTestTreeFile, openFile, positionOf, withTimeout } from "../../helpers";
 
-describe("dart test debugger", () => {
+describe.skip("dart test debugger", () => {
 	// We have tests that require external packages.
 	before("get packages", () => getPackages());
 	beforeEach("activate helloWorldTestMainFile", () => activate(helloWorldTestMainFile));

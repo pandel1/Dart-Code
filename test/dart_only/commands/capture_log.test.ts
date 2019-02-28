@@ -8,7 +8,7 @@ import { fsPath } from "../../../src/utils";
 import { log } from "../../../src/utils/log";
 import { activate, sb, waitForResult } from "../../helpers";
 
-describe("capture logs command", () => {
+describe.skip("capture logs command", () => {
 	beforeEach("activate", () => activate());
 
 	async function configureLog(...logCategories: LogCategory[]) {

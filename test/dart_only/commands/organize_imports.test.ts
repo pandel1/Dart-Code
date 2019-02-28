@@ -1,7 +1,7 @@
 import * as vs from "vscode";
 import { activate, ensureTestContent, setTestContent, waitForEditorChange } from "../../helpers";
 
-describe("organize imports", () => {
+describe.skip("organize imports", () => {
 
 	beforeEach("activate", () => activate());
 
