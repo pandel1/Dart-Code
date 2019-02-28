@@ -36,5 +36,6 @@ describe("test_outline_visitor", () => {
 
 		const wtf = require("wtfnode");
 		setTimeout(() => wtf.dump(), 5000);
+		wtf.dump();
 	});
 });
