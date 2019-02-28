@@ -62,19 +62,13 @@ before_install:
   - echo Downloading Dart and Flutter...
   - curl https://storage.googleapis.com/dart-archive/channels/$DART_CHANNEL/latest/sdk/dartsdk-$DART_OS-x64-release.zip > dart-sdk.zip
   - unzip dart-sdk.zip > /dev/null
-  - git clone -b $FLUTTER_BRANCH https://github.com/flutter/flutter.git
   - echo Configuring Dart and Flutter...
-  - flutter/bin/flutter config --no-analytics
-  - flutter/bin/flutter update-packages
-  - export FLUTTER_PATH=`pwd`/flutter
   - export DART_PATH=`pwd`/dart-sdk
 
   # To ensure we follow symlinks properly, put links
   # in folders that we'll use in PATHs.
   - mkdir dartsymlinkbins
   - ln -s ../dart-sdk/bin/dart dartsymlinkbins/dart
-  - mkdir fluttersymlinkbins
-  - ln -s ../flutter/bin/flutter fluttersymlinkbins/flutter
 
   # To ensure we detectonly detect real SDKs and not non-Dartlang
   # dart binaries, add a fake dart that is actually just echo
@@ -82,14 +76,10 @@ before_install:
   - ln -s /bin/echo fakedart/dart
 
   - export DART_PATH_SYMLINK=`pwd`/fakedart:`pwd`/dartsymlinkbins
-  - export FLUTTER_PATH_SYMLINK=`pwd`/fluttersymlinkbins
   - dart-sdk/bin/dart --version
-  - flutter/bin/flutter --version
   - dartsymlinkbins/dart --version
-  - fluttersymlinkbins/flutter --version
   - node --version
   - npm --version
-  - flutter/bin/flutter doctor
   - dart-sdk/bin/pub global activate stagehand
   - dart-sdk/bin/pub global activate args 1.5.0
   - dart-sdk/bin/pub global activate meta 1.1.6
