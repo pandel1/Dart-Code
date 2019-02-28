@@ -458,7 +458,7 @@ describe("dart cli debugger", () => {
 		]);
 	});
 
-	it("provides local variables when stopped at a breakpoint", async () => {
+	it.skip("provides local variables when stopped at a breakpoint", async () => {
 		await openFile(helloWorldMainFile);
 		const debugConfig = await startDebugger(helloWorldMainFile);
 		await dc.hitBreakpoint(debugConfig, {
@@ -537,7 +537,7 @@ describe("dart cli debugger", () => {
 		}, dc);
 	});
 
-	it("excludes type args from local variables when stopped at a breakpoint in a generic method", async () => {
+	it.skip("excludes type args from local variables when stopped at a breakpoint in a generic method", async () => {
 		await openFile(helloWorldMainFile);
 		const debugConfig = await startDebugger(helloWorldMainFile);
 		await dc.hitBreakpoint(debugConfig, {
@@ -551,7 +551,7 @@ describe("dart cli debugger", () => {
 		assert.equal(variables.length, 1);
 	});
 
-	it("includes getters in variables when stopped at a breakpoint", async () => {
+	it.skip("includes getters in variables when stopped at a breakpoint", async () => {
 		await openFile(helloWorldGettersFile);
 		const config = await startDebugger(helloWorldGettersFile);
 		await dc.hitBreakpoint(config, {
@@ -568,7 +568,7 @@ describe("dart cli debugger", () => {
 		ensureVariable(classInstance, undefined, "throws", { starts: "Unhandled exception:\nOops!" });
 	});
 
-	it("watch expressions provide same info as locals", async () => {
+	it.skip("watch expressions provide same info as locals", async () => {
 		await openFile(helloWorldMainFile);
 		const config = await startDebugger(helloWorldMainFile);
 		await dc.hitBreakpoint(config, {
@@ -589,7 +589,7 @@ describe("dart cli debugger", () => {
 		}
 	});
 
-	it("evaluateName evaluates to the expected value", async () => {
+	it.skip("evaluateName evaluates to the expected value", async () => {
 		await openFile(helloWorldMainFile);
 		const config = await startDebugger(helloWorldMainFile);
 		await dc.hitBreakpoint(config, {
@@ -622,7 +622,7 @@ describe("dart cli debugger", () => {
 		}
 	});
 
-	it("stops on exception", async () => {
+	it.skip("stops on exception", async () => {
 		await openFile(helloWorldBrokenFile);
 		const config = await startDebugger(helloWorldBrokenFile);
 		await Promise.all([
@@ -635,7 +635,7 @@ describe("dart cli debugger", () => {
 		]);
 	});
 
-	it("provides exception details when stopped on exception", async () => {
+	it.skip("provides exception details when stopped on exception", async () => {
 		await openFile(helloWorldBrokenFile);
 		const config = await startDebugger(helloWorldBrokenFile);
 		await Promise.all([
@@ -651,7 +651,7 @@ describe("dart cli debugger", () => {
 		ensureVariable(variables, "$e.message", "message", `"Oops"`);
 	});
 
-	it("writes exception to stderr", async () => {
+	it.skip("writes exception to stderr", async () => {
 		await openFile(helloWorldBrokenFile);
 		const config = await startDebugger(helloWorldBrokenFile);
 		config.noDebug = true;
@@ -664,7 +664,7 @@ describe("dart cli debugger", () => {
 	});
 
 	describe.skip("attaches", () => {
-		it("to a paused Dart script and can unpause to run it to completion", async () => {
+		it.skip("to a paused Dart script and can unpause to run it to completion", async () => {
 			const process = spawnDartProcessPaused(await getLaunchConfiguration(helloWorldMainFile));
 			const observatoryUri = await process.observatoryUri;
 
@@ -676,7 +676,7 @@ describe("dart cli debugger", () => {
 			]);
 		});
 
-		it("when provided only a port in launch.config", async () => {
+		it.skip("when provided only a port in launch.config", async () => {
 			const process = spawnDartProcessPaused(await getLaunchConfiguration(helloWorldMainFile));
 			const observatoryUri = await process.observatoryUri;
 			const observatoryPort = /:([0-9]+)\/?$/.exec(observatoryUri)[1];
@@ -690,7 +690,7 @@ describe("dart cli debugger", () => {
 			]);
 		});
 
-		it("to the observatory uri provided by the user when not specified in launch.json", async () => {
+		it.skip("to the observatory uri provided by the user when not specified in launch.json", async () => {
 			const process = spawnDartProcessPaused(await getLaunchConfiguration(helloWorldMainFile));
 			const observatoryUri = await process.observatoryUri;
 
@@ -707,7 +707,7 @@ describe("dart cli debugger", () => {
 			assert.ok(showInputBox.calledOnce);
 		});
 
-		it("to a paused Dart script and can set breakpoints", async () => {
+		it.skip("to a paused Dart script and can set breakpoints", async () => {
 			const process = spawnDartProcessPaused(await getLaunchConfiguration(helloWorldMainFile));
 			const observatoryUri = await process.observatoryUri;
 
@@ -718,7 +718,7 @@ describe("dart cli debugger", () => {
 			});
 		});
 
-		it("and removes breakpoints and unpauses on detach", async () => {
+		it.skip("and removes breakpoints and unpauses on detach", async () => {
 			const process = spawnDartProcessPaused(await getLaunchConfiguration(helloWorldMainFile));
 			const observatoryUri = await process.observatoryUri;
 
@@ -735,6 +735,6 @@ describe("dart cli debugger", () => {
 			await process.exitCode;
 		});
 
-		it("and reports failure to connect to the Observatory");
+		it.skip("and reports failure to connect to the Observatory");
 	});
 });
