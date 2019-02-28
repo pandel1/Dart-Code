@@ -218,9 +218,13 @@ export class DebugConfigProvider implements DebugConfigurationProvider {
 			// Check if any are inside our CWD.
 			const hasDartErrorsInProject = !!dartErrors.find((fd) => {
 				const file = fsPath(fd[0]);
-				return isWithinPath(file, debugConfig.cwd)
+				const a = isWithinPath(file, debugConfig.cwd)
 					// Ignore errors in tests unless it's the file we're running.
 					&& (!isTestFile(file) || file === debugConfig.program);
+				if (a) {
+					console.log(JSON.stringify(fd));
+				}
+				return a;
 			});
 			if (hasDartErrorsInProject) {
 				logWarn("Project has errors, prompting user");
