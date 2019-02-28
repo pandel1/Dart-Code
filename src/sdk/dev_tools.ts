@@ -92,6 +92,7 @@ export class DevTools implements vs.Disposable {
 			});
 			this.proc.stderr.on("data", (data) => stderr.push(data.toString()));
 			this.proc.on("close", (code) => {
+				log("DevTools closed");
 				this.proc = null;
 				this.devtoolsUrl = null;
 				this.devToolsStatusBarItem.hide();
@@ -111,10 +112,11 @@ export class DevTools implements vs.Disposable {
 	}
 
 	public dispose(): void {
-		this.devToolsStatusBarItem.dispose();
+		log("Disposing DevTools");
 		this.devtoolsUrl = null;
 		if (this.proc && !this.proc.killed) {
 			this.proc.kill();
 		}
+		this.devToolsStatusBarItem.dispose();
 	}
 }
